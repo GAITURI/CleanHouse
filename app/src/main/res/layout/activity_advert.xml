@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Advert"
+    android:background="#EEE3D3">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:id="@+id/pest"
+
+        >
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pc1"
+            android:scaleType="centerCrop"
+
+            />
+    </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/About"
+                android:layout_below="@+id/pest"
+                android:padding="20dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-black"
+                android:id="@+id/text_sample"
+
+                />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_below="@id/text_sample"
+        >
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact us via phone"
+            android:drawableLeft="@drawable/phone"
+            android:layout_below="@id/text_sample"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:id="@+id/contact_phone"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact us via Email"
+            android:drawableLeft="@drawable/email"
+            android:layout_below="@id/text_sample"
+            android:layout_alignRight="@+id/contact_phone"
+            android:layout_marginStart="10dp"
+            android:id="@+id/contact_email"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

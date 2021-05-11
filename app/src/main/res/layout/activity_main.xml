@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CollectData">
+
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="0dp"
+        android:scrollbars="none">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <EditText
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:inputType="text"
+       android:hint="Enter Name"
+       android:textColorHint="@color/black"
+       android:textStyle="bold"
+       android:layout_margin="10dp"
+       android:drawableLeft="@drawable/name"
+       android:drawablePadding="50dp"
+       android:id="@+id/ED1"
+       android:padding="30dp"
+       />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Enter Gender"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:drawablePadding="50dp"
+        android:drawableLeft="@drawable/gender"
+        android:id="@+id/ED2"
+        android:layout_below="@id/ED1"
+        android:padding="30dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Enter House Number"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/house"
+        android:drawablePadding="50dp"
+        android:id="@+id/ED3"
+        android:layout_below="@id/ED2"
+        android:padding="30dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:hint="Enter Phone"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/phone"
+        android:drawablePadding="50dp"
+        android:id="@+id/ED4"
+        android:layout_below="@id/ED3"
+        android:padding="30dp"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:hint="Enter Email"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+
+        android:drawableLeft="@drawable/email"
+        android:drawablePadding="50dp"
+        android:id="@+id/ED5"
+        android:layout_below="@id/ED4"
+        android:padding="30dp"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="Pest Problem"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+
+        android:drawableLeft="@drawable/pest"
+        android:drawablePadding="50dp"
+        android:id="@+id/ED6"
+        android:layout_below="@id/ED5"
+        android:padding="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="Enter Date"
+        android:textColorHint="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+
+        android:drawableLeft="@drawable/date"
+        android:drawablePadding="50dp"
+        android:id="@+id/ED7"
+        android:layout_below="@id/ED6"
+        android:padding="20dp"
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn"
+        android:text="Complete"
+        android:textAllCaps="false"
+        android:padding="30dp"
+        android:onClick="onSaveButtonClick"
+        android:layout_below="@id/ED7"
+        android:layout_centerInParent="true"/>
+   </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

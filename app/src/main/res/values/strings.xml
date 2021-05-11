@@ -1,0 +1,37 @@
+<resources>
+    <string-array name="About_us">
+        <item>Contact</item>
+        <item>Email</item>
+        <item>Facebook</item>
+        <item>Instagram</item>
+        <item>Twitter</item>
+
+    </string-array>
+
+    <string name="About">
+        Our company is an established Pest control organization with an aim to ensure you
+        have a comfy home.We have served over a 1000+ customers who have given us positive remarks.
+        Our services are human and environmental friendly.We are located on Safari Drive 123.
+        We are certified by the Ministry of Health Department and the Insect Research Institute.
+
+    </string>
+
+    <string name="Disclaimer">
+    "Errors and omissions" disclaimer
+
+"[The developer] assumes no responsibility or liability for any errors or omissions in the content of this site.
+    The information contained in this site is provided on an "as is" basis with no guarantees of completeness, accuracy, usefulness
+    or timeliness.
+
+
+
+</string>
+
+
+    <string name="copyright">
+         © 2021 CleanHouse_developer
+    </string>
+
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+</resources>
