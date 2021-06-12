@@ -23,8 +23,8 @@ class ConfirmData : AppCompatActivity() {
 
         val sharedName:String?=intent.getStringExtra("Name")
         val sharedGender:String?= intent.getStringExtra("Gender")
-        val sharedHouse:Int?=intent.getIntExtra("House NO",0)
-        val sharedPhone:Int?=intent.getIntExtra("Phone No",0)
+        val sharedHouse:String?=intent.getStringExtra("House NO")
+        val sharedPhone:String?=intent.getStringExtra("Phone No")
         val sharedEmail:String?=intent.getStringExtra("Email add")
         val sharedPest:String?=intent.getStringExtra("Pest to control")
         val sharedDate:String? = intent.getStringExtra("Date")

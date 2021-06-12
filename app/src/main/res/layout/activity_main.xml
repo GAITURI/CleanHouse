@@ -17,11 +17,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
     <EditText
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:inputType="text"
+
        android:hint="Enter Name"
        android:textColorHint="@color/black"
        android:textStyle="bold"
@@ -49,7 +50,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+
         android:hint="Enter House Number"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -63,7 +64,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="phone"
         android:hint="Enter Phone"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -77,7 +77,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+
         android:hint="Enter Email"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -94,7 +94,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+
         android:hint="Pest Problem"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -110,7 +110,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
+
         android:hint="Enter Date"
         android:textColorHint="@color/black"
         android:textStyle="bold"
@@ -123,17 +123,91 @@
         android:padding="20dp"
 
         />
-
-    <Button
+<LinearLayout
+    android:id="@+id/line1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@+id/ED7"
+    >
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn"
-        android:text="Complete"
-        android:textAllCaps="false"
-        android:padding="30dp"
-        android:onClick="onSaveButtonClick"
-        android:layout_below="@id/ED7"
-        android:layout_centerInParent="true"/>
+        android:layout_weight="1"
+        android:hint="Submit"
+        android:layout_marginRight="10dp"
+        android:textStyle="bold"
+        android:background="#C63D0F"
+        android:onClick="saveData"
+
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Read"
+        android:textStyle="bold"
+        android:onClick="readData"
+        android:background="#AE7631"
+        />
+    </LinearLayout>
+       <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2" android:layout_centerHorizontal="true"
+       android:layout_marginTop="60dp"
+        android:layout_below="@+id/line1"
+
+        >
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/btnupdate"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:hint="Update"
+               android:layout_marginRight="10dp"
+               android:textStyle="bold"
+               android:background="#D5811B"
+
+               />
+
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/btndelete"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:hint="Update"
+               android:layout_marginRight="5dp"
+               android:textStyle="bold"
+               android:background="#C63D0F"
+
+               />
+
+
+
+
+       </LinearLayout>
+
+
    </RelativeLayout>
     </ScrollView>
+
+
+    <ListView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list1"/>
+
+
+
+
+
 </RelativeLayout>

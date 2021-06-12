@@ -3,6 +3,7 @@
     package="com.example.cleanhouse">
 
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@drawable/pestlogo"
         android:label="CleanHouse"

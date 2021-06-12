@@ -8,114 +8,88 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class CollectData : AppCompatActivity() {
 
-    lateinit var editText:EditText
-    lateinit var editText1:EditText
-    lateinit var editText2:EditText
-    lateinit var editText3:EditText
-    lateinit var editText4:EditText
-    lateinit var editText5:EditText
-    lateinit var editText6:EditText
-    lateinit var  textView:TextView
-    lateinit var button: Button
-
-
-
-//initialise all variables
-private   var names:String=""
-private var genders:String=""
-private var housenumbers:Int=0
-private var phones:Int=0
-private var emails:String=""
-private var pests:String=""
-private var dates:String=""
-
-
-
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //view identification
-        editText = findViewById(R.id.ED1)
-        editText1 = findViewById(R.id.ED2)
-        editText2 = findViewById(R.id.ED3)
-        editText3 = findViewById(R.id.ED4)
-        editText4 = findViewById(R.id.ED5)
-        editText5 = findViewById(R.id.ED6)
-        editText6 = findViewById(R.id.ED7)
-        button = findViewById(R.id.btn)
-
-
+       lateinit var editText: EditText
 
     }
-        //fetch the text
-        fun onSaveButtonClick(view: View) {
 
-         val name= ED1.text.toString ()
-         val gender= ED2.text.toString ()
-        val housenumber= ED3.text.toString ()
-        val phone= ED4.text.toString ()
-        val email= ED5.text.toString ()
-       val pest= ED6.text.toString ()
-       val date= ED7.text.toString ()
+        fun saveData(view: View) {
 
+            val name = ED1.text.toString()
+            val gender = ED2.text.toString()
+            val id = ED3.text.toString()
+            val phone = ED4.text.toString()
+            val email = ED5.text.toString()
+            val pest = ED6.text.toString()
+            val date = ED7.text.toString()
 
-       //fetch text from names
-    names =editText.text.toString()
-            Log.d("ShareData","text from Edit text1" + editText + "text from Edit text" + names)
+            val databaseHandler:DatabaseHandler=DatabaseHandler(this)
 
+            if (id.trim()!="" && name.trim()!="" && gender.trim()!="" &&phone.trim()!="" &&email.trim()!="" && pest.trim()!="" && date.trim()!="") {
+                val status = databaseHandler.addUsers(SqlListModel(name, Integer.parseInt(id), gender, Integer.parseInt(phone), email, pest, Integer.parseInt(date)))
+                if (status>-1) {
+                    Toast.makeText(applicationContext, "Record saved", Toast.LENGTH_LONG).show()
+                    ED1.text?.clear()
+                    ED2.text?.clear()
+                    ED3.text?.clear()
+                    ED4.text?.clear()
+                    ED5.text?.clear()
+                    ED6.text?.clear()
+                    ED7.text?.clear()
+                }
 
-            genders = editText1.text.toString()
-            Log.d("ShareData","text from Edit text2" + editText1 + "text from Edit text" + genders)
+            }else{
+//                /if its null,notify the user
+                Toast.makeText(applicationContext,"Please input data",Toast.LENGTH_LONG).show()
 
-
-            housenumbers = editText2.text.toString().toInt()
-            Log.d("ShareData","text from Edit text1" + editText2 + "text from Edit text" + housenumbers)
-
-            phones = editText3.text.toString().toInt()
-            Log.d("ShareData","text from Edit text1" + editText3 + "text from Edit text" + phones)
-
-            emails = editText4.text.toString()
-            Log.d("ShareData","text from Edit text1" + editText4 + "text from Edit text" + emails)
-
-            pests = editText5.text.toString()
-            Log.d("ShareData","text from Edit text1" + editText5 + "text from Edit text" + pests)
-
-            dates= editText6.text.toString()
-            Log.d("ShareData","text from Edit text1" + editText6 + "text from Edit text" + dates)
-
-
-            val intentFormSharing = Intent(this@CollectData,ConfirmData::class.java)
-
-            //intent to sharing text
-            intentFormSharing.putExtra("Name", names)
-            intentFormSharing.putExtra("Gender",genders)
-            intentFormSharing.putExtra("House NO", housenumbers)
-            intentFormSharing.putExtra("Phone No", phones)
-            intentFormSharing.putExtra("Email add",emails)
-            intentFormSharing.putExtra("Pest to control",pests)
-            intentFormSharing.putExtra("Date",dates)
-            startActivity(intentFormSharing)
-
-
-
-
+        }
 
         }
 
 
 
+    fun readData(view:View){
+        val  databaseHandler:DatabaseHandler=DatabaseHandler(this)
+        val viewData:List<SqlListModel> = databaseHandler.readData()
+
+        val userId=Array<String>(viewData.size){"0"}
+        val userName=Array<String>(viewData.size){"null"}
+        val userGender=Array<String>(viewData.size){"null"}
+        val userPhone=Array<String>(viewData.size){"null"}
+        val userEmail=Array<String>(viewData.size){"null"}
+        val pest=Array<String>(viewData.size){"null"}
+        val date=Array<String>(viewData.size){"null"}
 
 
+        var index= 0
+
+        for (e in viewData){
+            userId[index]=e.userId.toString()
+            userName[index]=e.userName
+            userGender[index]=e.userGender
+            userPhone[index]=e.userPhone.toString()
+            userEmail[index]=e.userEmail
+            pest[index]=e.pest
+            date[index]=e.date.toString()
+            index++
+        }
+        val myAdapter= SqlModel(this,userName,userGender,userId,userPhone,userEmail,pest,date)
+        list1.adapter=myAdapter
 
     }
+
+    }
+
+
+
+
+
 
 

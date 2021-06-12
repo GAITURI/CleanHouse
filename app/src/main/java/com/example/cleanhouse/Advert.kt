@@ -21,8 +21,9 @@ class Advert : AppCompatActivity() {
         btnemail=findViewById(R.id.contact_email)
 
 
-        btnphone.setOnClickListener(View.OnClickListener {    val dialIntent = Intent(Intent.ACTION_DIAL)
-            dialIntent.data = Uri.parse("tel" + "0798275251")
+        btnphone.setOnClickListener(View.OnClickListener
+        {val dialIntent = Intent(Intent.ACTION_DIAL)
+            dialIntent.data = Uri.parse("254" + "798275251")
             startActivity(dialIntent)
         })
 
