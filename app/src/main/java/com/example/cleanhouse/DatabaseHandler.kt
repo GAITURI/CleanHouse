@@ -11,9 +11,9 @@ class DatabaseHandler (context: Context):SQLiteOpenHelper(context,DATABASE_NAME,
    companion object{
        private val DATABASE_VERSION=1
        private  val DATABASE_NAME="Pest"
-       private  val CLIENT_TABLE="CustomerTable"
+       private val CLIENT_TABLE="Customer"
        private val KEY_ID="Id"
-       private  val KEY_NAME="userName"
+       private  val KEY_NAME="UserName"
        private  val KEY_GENDER="UserGender"
        private  val KEY_PHONE="UserPhone"
        private  val KEY_EMAIL="UserEmail"
@@ -29,10 +29,8 @@ class DatabaseHandler (context: Context):SQLiteOpenHelper(context,DATABASE_NAME,
     override fun onCreate(db: SQLiteDatabase?) {
 
 
-   val CREATE_CLIENT_TABLE=("CREATE TABLE" + CLIENT_TABLE+"(" + KEY_ID +" INTEGER  PRIMARY KEY," + KEY_NAME
-           +" TEXT," + KEY_EMAIL +" TEXT,"  + KEY_DATE +" INTEGER,"   + KEY_PEST + " TEXT," + KEY_GENDER + " TEXT"
-           + KEY_PHONE + " INTEGER" + ")" )
-        db?.execSQL(CREATE_CLIENT_TABLE)
+   val CREATE_CUSTOMER=("CREATE TABLE " + CLIENT_TABLE + "(" + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," + KEY_EMAIL + " TEXT,"+ KEY_DATE + " INTEGER," + KEY_PEST + " TEXT," + KEY_GENDER + " TEXT," + KEY_PHONE + " INTEGER" + ")" )
+        db?.execSQL(CREATE_CUSTOMER)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -59,9 +57,9 @@ class DatabaseHandler (context: Context):SQLiteOpenHelper(context,DATABASE_NAME,
         val userArray: ArrayList<SqlListModel> = ArrayList<SqlListModel>()
         val selectQuery = "SELECT * FROM $CLIENT_TABLE"
         val db = this.readableDatabase
-        var cursor: Cursor? = null
+        var cursor:Cursor?= null
         try {
-            cursor = db.rawQuery(selectQuery, null)
+            cursor=db.rawQuery(selectQuery, null)
 
         }catch (e:SQLiteException) {
             db.execSQL(selectQuery)
@@ -81,11 +79,11 @@ class DatabaseHandler (context: Context):SQLiteOpenHelper(context,DATABASE_NAME,
              userName= cursor.getString(cursor.getColumnIndex("UserName"))
              userGender= cursor.getString(cursor.getColumnIndex("UserGender"))
              userPhone= cursor.getInt(cursor.getColumnIndex("UserPhone"))
-             userEmail= cursor.getString(cursor.getColumnIndex("userEmail"))
+             userEmail= cursor.getString(cursor.getColumnIndex("UserEmail"))
              pest= cursor.getString(cursor.getColumnIndex("Pest"))
              date= cursor.getInt(cursor.getColumnIndex("Date"))
 
-             val person = SqlListModel(userName=userName,userId =userId,userGender =userGender,userPhone =userPhone,userEmail =userEmail,pest =pest,date = date)
+             val person = SqlListModel(userName =userName, userId =userId, userGender =userGender, userPhone =userPhone, userEmail =userEmail, pest =pest, date=date)
              userArray.add(person)
          }   while (cursor.moveToNext())
 

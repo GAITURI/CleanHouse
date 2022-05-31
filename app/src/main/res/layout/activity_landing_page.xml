@@ -22,7 +22,9 @@
             android:elevation="4dp"
             android:layout_gravity="start"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        </androidx.appcompat.widget.Toolbar>
         <include layout="@layout/activity_advert2"/>
     </LinearLayout>
 

@@ -165,16 +165,17 @@
         android:layout_below="@+id/line1"
 
         >
+
            <androidx.appcompat.widget.AppCompatButton
                android:id="@+id/btnupdate"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_weight="1"
-               android:hint="Update"
                android:layout_marginRight="10dp"
-               android:textStyle="bold"
+               android:layout_weight="1"
                android:background="#D5811B"
-
+               android:hint="Update"
+               android:textStyle="bold"
+               android:onClick="updateData"
                />
 
            <androidx.appcompat.widget.AppCompatButton
@@ -182,11 +183,11 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_weight="1"
-               android:hint="Update"
+               android:hint="Delete"
                android:layout_marginRight="5dp"
                android:textStyle="bold"
                android:background="#C63D0F"
-
+                android:onClick="deleteData"
                />
 
 
@@ -198,13 +199,20 @@
    </RelativeLayout>
     </ScrollView>
 
-
-    <ListView
-        android:layout_centerHorizontal="true"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
         android:layout_below="@+id/scrollView1"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/list1"/>
+        android:scrollbars="none">
+        <ListView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list1"/>
+    </androidx.core.widget.NestedScrollView>
+
+
 
 
 

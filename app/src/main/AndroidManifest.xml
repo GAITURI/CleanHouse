@@ -2,15 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.cleanhouse">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/pestlogo"
         android:label="CleanHouse"
         android:roundIcon="@drawable/pestlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanHouse">
-        <activity android:name=".Advert2"></activity>
+        <activity android:name=".Crud"></activity>
+        <activity android:name=".CovidVolley" />
+        <activity android:name=".Advert2" />
         <activity android:name=".Advert" />
         <activity android:name=".HomePage" />
         <activity android:name=".CollectData" />
